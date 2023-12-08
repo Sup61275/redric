@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24" />
+    <item
+        android:id="@+id/menu_my_contest"
+        android:title="My Contest"
+        android:icon="@drawable/baseline_emoji_events_24" />
+    <item
+        android:id="@+id/menu_account"
+        android:title="Account"
+        android:icon="@drawable/account" />
+    <item
+        android:id="@+id/menu_more"
+        android:title="More"
+        android:icon="@drawable/baseline_format_align_justify_24" />
+</menu>
