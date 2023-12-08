@@ -1,59 +1,74 @@
-package com.example.redcric_app
-
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.redcric_app.CricketGame
+import com.example.redcric_app.CricketGameAdapter
+import com.example.redcric_app.ItemOffsetDecoration
+import com.example.redcric_app.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var cricketGameAdapter: CricketGameAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        // Initialize RecyclerView
+        recyclerView = view.findViewById(R.id.videoRV)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Fetch your list of games and create adapter
+        val cricketGamesList = getCricketGamesList()
+        cricketGameAdapter = CricketGameAdapter(cricketGamesList)
+
+        // Set the adapter to RecyclerView
+        recyclerView.adapter = cricketGameAdapter
+
+        // Add item decoration to adjust spacing between cards (optional)
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.spacing_between_cards)
+        recyclerView.addItemDecoration(ItemOffsetDecoration(spacingInPixels))
+
+        // Inflate the custom ActionBar layout
+        val actionBar = (activity as AppCompatActivity?)?.supportActionBar
+        actionBar?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
+        actionBar?.setDisplayShowCustomEnabled(true)
+        actionBar?.setCustomView(R.layout.custom_actionbar_layout)
+
+        // Handle clicks on ActionBar elements if needed
+        val logoImageView = actionBar?.customView?.findViewById<ImageView>(R.id.logo)
+        val notificationImageView = actionBar?.customView?.findViewById<ImageView>(R.id.notification_icon)
+        val walletImageView = actionBar?.customView?.findViewById<ImageView>(R.id.wallet_icon)
+
+        // Set click listeners or other actions for the icons if required
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun getCricketGamesList(): List<CricketGame> {
+        // Generating sample CricketGame objects
+        val game1 = CricketGame(
+            "T20 World Cup", "England", "IND",
+            R.drawable.engflag, R.drawable.indflag, "MEGA", "50 Crore"
+        )
+        val game2 = CricketGame(
+            "Another Tournament", "Team A", "Team B",
+            R.drawable.engflag, R.drawable.indflag, "Some Text", "Some Amount"
+        )
+
+        // Add the generated CricketGame objects to the list
+        return listOf(game1, game2)
+        // You can add more CricketGame objects similarly
     }
 }
+

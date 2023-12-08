@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#FAFAFA"
+    android:layout_marginBottom="20dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="10dp"
+    app:cardMaxElevation="12dp"
+    app:cardPreventCornerOverlap="true"
+
+  >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="11dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E8E8E8" />
+
+        <!-- Top part -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvT20WorldCup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:padding="8dp"
+                android:text="T20 World Cup"
+                android:textColor="#5E5B5B"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/ivBellIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@drawable/baseline_notification_add_24" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D5CFCF" />
+
+        <!-- Middle part -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/leftContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="England"
+                    android:id="@+id/eng"
+                    android:textColor="#5C5B5B"/>
+
+
+                <ImageView
+                    android:id="@+id/engFlagImageView"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/engflag"
+                    android:layout_below="@+id/eng"/>
+
+                <TextView
+                    android:id="@+id/engTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:text="ENG"
+                    android:layout_toEndOf="@id/engFlagImageView"
+                    android:layout_marginStart="6dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/countdownTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25m30s"
+                android:layout_marginTop="10dp"
+                android:textColor="#FF0000"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:id="@+id/rightContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="India"
+                    android:id="@+id/ind"
+                    android:layout_marginStart="90dp"
+                    android:textColor="#5C5B5B"/>
+
+                <ImageView
+                    android:id="@+id/indFlagImageView"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="85dp"
+                    android:layout_below="@+id/ind"
+                    android:src="@drawable/indflag" />
+
+                <TextView
+                    android:id="@+id/indTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="54dp"
+                    android:layout_marginTop="35dp"
+                    android:text="IND"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E8E8E8" />
+
+        <!-- Bottom part -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:background="#F3F1F1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvMega"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="MEGA"
+                android:textColor="#32BA32"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv50Crore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text="50 Lakh"
+                android:textColor="#32BA32"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+
