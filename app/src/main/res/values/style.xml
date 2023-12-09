@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionBarSize">80dp</item>
         <!-- Customize your theme here -->
-        <item name="colorPrimary">@color/red</item> <!-- Change ActionBar color -->
+        <item name="colorPrimary">@color/red</item>
+        <item name="android:statusBarColor">@color/red</item>
+        <!-- Change ActionBar color -->
         <!-- Other theme attributes -->
     </style>
 

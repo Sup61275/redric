@@ -8,7 +8,7 @@ class CricketGameAdapter(private val cricketGames: List<CricketGame>) :
     RecyclerView.Adapter<CricketGameViewHolder>() {
 
     // Change this variable to control the number of times the CardView should be repeated
-    private val repeatCount = 9
+    private val repeatCount = 12
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CricketGameViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -34,3 +34,4 @@ class CricketGameAdapter(private val cricketGames: List<CricketGame>) :
         return cricketGames.size * repeatCount
     }
 }
+

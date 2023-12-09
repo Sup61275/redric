@@ -1,17 +1,17 @@
+package com.example.redcric_app
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.redcric_app.CricketGame
-import com.example.redcric_app.CricketGameAdapter
-import com.example.redcric_app.ItemOffsetDecoration
-import com.example.redcric_app.R
 
 class HomeFragment : Fragment() {
 
@@ -45,29 +45,37 @@ class HomeFragment : Fragment() {
         actionBar?.setDisplayShowCustomEnabled(true)
         actionBar?.setCustomView(R.layout.custom_actionbar_layout)
 
+        // Set ActionBar color
+        actionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(requireContext(), R.color.red)))
+
         // Handle clicks on ActionBar elements if needed
         val logoImageView = actionBar?.customView?.findViewById<ImageView>(R.id.logo)
         val notificationImageView = actionBar?.customView?.findViewById<ImageView>(R.id.notification_icon)
         val walletImageView = actionBar?.customView?.findViewById<ImageView>(R.id.wallet_icon)
+
+        notificationImageView?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
+        walletImageView?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
+        // Inside your onCreateView method in HomeFragment
+        val megaTextView = actionBar?.customView?.findViewById<TextView>(R.id.tvMega)
+        megaTextView?.setBackgroundResource(R.drawable.green_rounded_rectangle)
+
 
         // Set click listeners or other actions for the icons if required
 
         return view
     }
 
+
     private fun getCricketGamesList(): List<CricketGame> {
         // Generating sample CricketGame objects
         val game1 = CricketGame(
-            "T20 World Cup", "England", "IND",
+            "T20 World Cup", "ENG", "IND",
             R.drawable.engflag, R.drawable.indflag, "MEGA", "50 Crore"
         )
-        val game2 = CricketGame(
-            "Another Tournament", "Team A", "Team B",
-            R.drawable.engflag, R.drawable.indflag, "Some Text", "Some Amount"
-        )
+
 
         // Add the generated CricketGame objects to the list
-        return listOf(game1, game2)
+        return listOf(game1)
         // You can add more CricketGame objects similarly
     }
 }

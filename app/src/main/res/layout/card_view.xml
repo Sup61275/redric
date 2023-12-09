@@ -161,14 +161,15 @@
 
             <TextView
                 android:id="@+id/tvMega"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="start"
-                android:padding="5dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:text="MEGA"
-                android:textColor="#32BA32"
-                android:textSize="15sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:background="@drawable/green_rounded_rectangle" />
 
             <TextView
                 android:id="@+id/tv50Crore"
@@ -178,7 +179,7 @@
                 android:padding="5dp"
                 android:text="50 Lakh"
                 android:textColor="#32BA32"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
         </LinearLayout>
 
